@@ -1,15 +1,19 @@
 ---
 name: hiccai-mv
-description: Create fashion-forward, avant-garde music-video prompts from reference images or an original MV brief, integrating character styling, cinematic viewpoint, staging, camera movement, music, editing, and continuity. Supports 30-second MVs, single scenes, and revisions; standalone portrait design and film-history lessons are outside scope.
+description: Create fashion-forward, avant-garde MV prompts from reference images or an original brief, including single scenes and revisions. Also create MV character and environment reference-image prompts or images when explicitly requested. Unrelated portrait design and film-history lessons are outside scope.
 ---
 
 # hiccai-MV
 
 将用户图片与可选创意转化为一份可直接与图片一起提交的音乐 MV 提示词。默认面向 Seedance 2.5、30 秒，以商业 MV 的视觉、表演与音画完整性为目标。用户使用说明与架构图见 [使用指南](使用指南.md)。
 
+用户明确要求为 MV 制作人物或场景参考图时，按参考图资产模式交付；静态资产不套用视频时长、歌词与逐镜编排要求。
+
 **时尚与先锋是所有创作输出的强制审美要求，适用于完整 MV、单场景与修订。** 必须以具体的造型呈现、摄影、表演、声音或剪辑决策体现，不能只在开头写“时尚、先锋、高级、电影感”。除非用户明确改变这一定位，不得自行降为普通写实展示或通用炫技混剪。两者可以克制、温暖、粗粝或极简，不限定为奢华、冷感、未来主义或高速剪辑。
 
 沿用用户确认的创作方式，从参考图编排拍摄、表演、音乐与剪辑，不主动引入无关制作流程。
+
+人物与场景参考图通过造型、构图、空间和色彩关系体现时尚与先锋；不强制加入成片特效、颗粒、粗糙背景或做旧。参考图默认清晰自然，具体质量与风格继承规则见参考图资产模式。
 
 创作顺序是先抓住有吸引力的段落和观看体验，再选择摄影与表演方案，核对身份、时间及空间关系，最后整理成可执行提示词。用户硬约束和连续性必须守住；时尚先锋在全片层面成立，不要求每镜同时展示实验、运镜和新信息。允许停留、普通切镜、静止、重复与诗意省略，不用填满模板或展示术语代替判断。
 
@@ -18,9 +22,10 @@ description: Create fashion-forward, avant-garde music-video prompts from refere
 - **默认：图片 → 完整 MV 提示词。** 实际查看所有图片，内部完成创作与检查，直接交付。无需让用户逐项审批故事、音乐、语言、镜头数和落版。
 - **引导共创：** 用户明确要求首次使用模拟、讨论、分步确认时，按其节奏推进，每轮只处理影响方案的决策。不要把内部检查表变成问卷。
 - **单场景：** 用户仅要求一张图的动画或一个镜头时，遵循指定时长和剪辑方式，不强行扩展成 30 秒多场景 MV。
+- **MV 参考图资产：** 用户明确要求人物图、角色设定图、三视图、场景图或相应生图提示词时，先读 [参考图资产与图像质量](references/reference-assets.md)，涉及人物时同时读人物与时尚造型。只交付当前请求的资产；不强行扩展成完整 MV 提示词。要求实际图片时使用当前可用且适用于任务的生图工具，遵循其使用说明；工具不可用时说明限制并交付生图提示词，不把提示词冒充已生成图片。
 - **Revision：** 根据反馈局部修改，再交付可独立使用的完整修订提示词。
 
-用户当前要求覆盖默认值与旧方案。默认 30 秒；画幅根据主体构图选择；音乐根据创意与图像气质选择，默认补充简短原创歌词，语言跟随明确偏好，否则自行选择。用简短说明呈现采用的假设。无歌词、指定音轨或其他模型要求优先。
+用户当前要求覆盖默认值与旧方案。MV 视频模式默认 30 秒；画幅根据主体构图选择；音乐根据创意与图像气质选择，默认补充简短原创歌词，语言跟随明确偏好，否则自行选择。用简短说明呈现采用的假设。无歌词、指定音轨或其他模型要求优先。参考图资产按所需视图和空间选择画幅，不新增音乐与歌词。
 
 只追问无法合理推断、且会改变核心创作的缺口，例如身份或碰撞空间关系。要求依据图片但图片缺失或无法查看时请求补齐，不能按文件名编造分析。用户明确要求从零创作 MV 时允许纯文字角色与场景设定，不伪造图片标签；默认交付完整 MV 提示词，不自动生成角色图。其他缺项合理补全，允许用户随后纠正。
 
@@ -139,7 +144,7 @@ Seedance 2.5 是目标交付环境，不是对平台能力的保证。时长、�
 
 ## 6. 输出检查与交付
 
-正式输出前读取 [prompt-templates.md](references/prompt-templates.md)，按当前模式组织完整提示词，不机械填满模板。
+正式输出前读取 [prompt-templates.md](references/prompt-templates.md)，按当前模式组织完整提示词，不机械填满模板。参考图资产按其中的资产模板和 reference-assets.md 检查、交付，不运行下面的视频时间、口型与落版检查；以下要求适用于 MV 视频模式。
 
 内部检查：
 
@@ -168,6 +173,8 @@ Seedance 2.5 是目标交付环境，不是对平台能力的保证。时长、�
 只声明提示词检查完成；生成效果与商业可用性需要成片验证。默认交付提示词即完成本轮，不强制回传视频才能使用。
 
 ## 7. 生成反馈与 Revision
+
+人物或场景参考图的颗粒、脏污、色偏、视图和清晰度问题，按 [参考图资产与图像质量](references/reference-assets.md) 定位实体材质、环境状态或成像处理，只修改受影响层；不为了去颗粒改脸、提白肤色或抹去已确认的建筑与服装材质。以下反馈流程适用于视频。
 
 判断问题属于摄影、主动表演、节奏、歌词/口型、转场、风格、连续性或落版。有视频时查看相关时间段；只有文字反馈时把原因表述为待测试假设，不声称看过成片。
 

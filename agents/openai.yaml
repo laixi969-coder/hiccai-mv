@@ -1,4 +1,4 @@
 interface:
   display_name: "hiccai-MV"
-  short_description: "从参考图创作时尚先锋 MV，统筹人物造型、主动表演、音乐歌词与镜头衔接"
+  short_description: "创作时尚先锋 MV 提示词，支持人物与场景参考图、造型、表演及音画衔接"
   default_prompt: "使用 $hiccai-mv，根据我上传的参考图创作30秒时尚先锋 MV 完整提示词，锁定人物身份，统筹妆发服饰、统一视觉规则、先锋创意、主动表演、音乐歌词、转场与连续性；未指定设定请合理补全。"
